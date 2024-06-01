@@ -19,3 +19,7 @@
 **Cart View**  (we can add variety of food's and can remove too, If we don't wish to order)
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/9b749f64-5325-4120-9264-79cfd26f699d)
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/ebd0c0ea-76ec-4cfb-98ff-b457884700c8)
+
+**Authentication**
+![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/f3b170ec-5aca-4469-b457-18806807ef76)
+![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/e9980df0-cb74-4046-909d-f82978d8534e)
