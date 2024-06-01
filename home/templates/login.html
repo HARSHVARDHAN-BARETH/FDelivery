@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+         width: 100%;
+         height: 100vh;
+         display: flex;
+         justify-content: space-between;
+    }
+
+    .logicContainer{
+        width: 50%;
+        margin-top: 2vw;
+        position: relative;
+    }
+
+    .photo{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo img{
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+    }
+
+    form{
+        position: absolute;
+        margin-left: 3vw;
+        width: 100%;
+        border: 1px solid #222;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1vw;
+        min-height: 550px;
+    }
+
+    form h2{
+        font-size: 1.9rem;
+        text-transform: uppercase;
+        margin: 15px 0;
+        font-weight: 200;
+        color: #f94a3d;
+        margin-bottom: 4vw;
+    }
+
+    .img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .img img{
+        width: 500px;
+    }
+
+    .avtar{
+        width: 150px;
+    }
+     
+    .input-div h5{
+        margin-left: 2vw;
+        font-weight: 200;
+        font-size: 1.5vw;
+    }
+    .input-div input {
+        margin-top: 1vw;
+        width: 22vw;
+        height: 2vw;
+        margin-left: 2vw;
+        border: none; 
+        border-bottom: 1px solid #222; 
+        outline: none; 
+    }
+    
+    .input-div input:focus {
+        border-bottom: 2px solid #f94a3d; 
+    }
+
+    .user{
+        display: flex;
+        width: 100%;
+        margin-left: 2vw;
+
+        
+    }
+    .user input{
+        margin-top: 1vw;
+        width: 46vw;
+        height: 2vw;
+        margin-left: 2vw;
+        border: none; 
+        border-bottom: 1px solid #222; 
+        outline: none; 
+
+    }
+    .pass{
+        width: 100%;
+        display: flex;
+        margin-left: 2vw;
+    }
+    .pass input{
+        margin-top: 1vw;
+        width: 46vw;
+        height: 2vw;
+        margin-left: 2vw;
+        border: none; 
+        border-bottom: 1px solid #222; 
+        outline: none; 
+
+    }
+        
+
+    .btn{
+        padding: 1vw 5vw;
+        border: none;
+        background-color: #f94a3d;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.5vw;
+        width: 100%;
+        margin-top: 2vw;
+    }
+    .btn:hover{
+        background-color: #fff;
+        border: 2px solid #f94a3d;
+        color: #f94a3d;
+        font-size: 1.5vw;
+
+    }
+     
+    form p{
+        color: #333;
+        width: 100%;
+        margin-left: 4.5vw;
+    }
+    form p a{
+        color: #1e90ff;
+        padding: 0 .50vw;
+    }
+</style>
+<body>
+    <div class="container">
+        
+        <div class="logicContainer">
+            <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <h2>Login</h2>
+                {% comment %} {% if messages %}
+                <div class="alert alert-primary" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                  </div>          
+                <ul class="messages">
+                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}></li>
+                </ul>
+                {% endif %} {% endcomment %}
+
+                {% if messages %}
+                <div class="notification-container">
+                    <div class="notification">
+                        {% for message in messages %}
+                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                        {% endfor %}
+                        <img id='cross' src="/static/images/close.png" width="15px" height="15px" alt="">
+                    </div>
+                </div>
+                <script>
+                    var cross = document.getElementById('cross')
+                    cross.addEventListener('click', ()=> {
+                        document.getElementsByClassName('notification-container')[0].style.display = 'none';
+                    })
+                </script>
+                {% endif %}
+            
+            
+        
+                <div class="input-div user">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    <div>
+                        <h5><i class="ri-mail-line"></i>User Name</h5>
+                        <input class="input" name="username" type="text">
+                    </div>
+                </div>
+                </div>
+
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    <div>
+                        <h5><i class="ri-mail-line"></i>Password</h5>
+                        <input class="input" name="password" type="password">
+                    </div>
+                </div>
+                </div>
+
+                <button class="btn">Create An Account</button>
+
+                <p>Already have an account?     <a href="/sign/">Sign In</a> </p>
+            </form>
+        </div>
+
+        <div class="photo">
+            <a href="/"><img src="https://t4.ftcdn.net/jpg/03/21/33/93/360_F_321339306_3UStnILdqK6xNbduTBbYido78UytJnzC.jpg" alt="">
+           </div>
+ 
+    </div>
+
+</body>
+</html>

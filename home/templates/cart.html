@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDelivery Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/></head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f8f8;
+    }
+    
+    .main {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #fff;
+    }
+    
+    .heading {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        background-color: #f94a3d;
+        color: #fff;
+    }
+    
+    .heading a {
+        text-decoration: none;
+        width: 20%;
+        font-size: 1.2rem;
+        margin-left: 1.5rem;
+    }
+    
+    .heading h1 {
+        font-size: 2rem;
+        margin-left: 20vw;
+        width:80%;
+        text-align: flex-start;
+    }
+    
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+    
+    th {
+        background-color: #f94a3d;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    
+    img {
+        max-width: 50px;
+        height: auto;
+    }
+    
+    button {
+        background-color: #f94a3d;
+        width: 100%;
+        color: #fff;
+        height: 50px;
+        cursor: pointer;
+        border: none;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+    
+    @media screen and (min-width: 768px) {
+        .container {
+            width: 70%;
+        }
+    }
+    
+</style>
+<body>
+    <div class="main">
+        <div class="heading">
+            <a href="/"><i class="ri-arrow-left-double-line"></i>BACK</a>
+            <h1>Your Shopping Cart</h1>
+        </div>
+        <div class="container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Delete</th>
+                    <!-- Add more table headers if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for product_id, details in cart.items %}
+                <tr>
+                    <td><img src="{{ details.image }}" alt="{{ details.name }}"></td>
+                    <td>{{ details.name }}</td>
+                    <td>RS.{{ details.price }}</td>
+                    <td>{{ details.quantity }}</td>
+                    <td>
+                        <form method="post" action="{% url 'cart_view' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="remove_product_id" value="{{ product_id }}">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+        </table>
+    
+        <!-- Button for placing the order -->
+        <button onclick="placeOrder()">Place Your Order</button>
+    
+    </div>
+</div>
+
+
+    <script>
+        function placeOrder() {
+            // You can add JavaScript logic here for handling the order placement
+            alert("Order placed successfully!"); // For example, show an alert
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/b20b9e1db0.js" crossorigin="anonymous"></script>
+</body>
+</html>   

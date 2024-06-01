@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> <!-- Recommended -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/></head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: all .2s linear;
+        text-transform: uppercase;
+    }
+    html{
+        overflow-x: hidden;
+        font-size: 62.5%;
+    }
+    body{
+        background: #eee;
+    }
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+    }
+    .container .title{
+        font-size: 3.5rem;
+        color: #444;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .container .product-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 2rem;
+    }
+
+    .container .product-container .product{
+        text-align: center;
+        padding: 3rem 2rem;
+        background-color: #fff;
+        box-shadow: 0.5rem 1rem rgba(0,0,0,.1);
+        outline: .1rem solid #ccc;
+        outline-offset: -1.5rem;
+        cursor: pointer;
+    }
+    .container .product-container .product:hover{
+        outline: .2rem solid crimson;
+        outline-offset: 0;
+
+    }
+    .container .product-container .product img{
+        height: 25rem;
+    }
+    .container .product-container .product:hover img{
+        transform: scale(.9);
+    }
+
+    .container .product-container .product h3{
+         padding: .5rem 0;
+         font-size: 2rem;
+         color: #444;
+    } 
+    .container .product-container .product:hover h3{
+         color: crimson;
+    } 
+    .container .product-container .product .price{
+         padding: .5rem 0;
+         font-size: 2.5rem;
+         color: crimson;
+    } 
+
+    .cards{
+        padding: 1vw 10vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) ;
+        width: 100%;
+        height: 100vh;
+        
+    }
+    .card{
+        padding: 1vw 1vw;
+        width: 100%;
+        height: 100%;
+    }
+    .img{
+        width: 80%;
+        justify-content: center;
+        display:flex;
+        align-items: center;
+        height: 30%;
+    }
+    .text h3{
+        font-size:2vw;
+        text-transform: uppercase;
+    }
+    .text{
+        justify-content: center;
+        display:flex;
+        height: 60%;
+        flex-direction: column;
+    }
+    .img img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+     .text p{
+        font-size:1vw;
+     }
+    
+    .acart{
+        background-color: crimson;
+    }
+    .acart a{
+        text-decoration: none;
+        font-size: 2vw;
+        width: 100%;
+        margin-left: 7vw;
+        color: #fff;
+    }
+    .heading {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        background-color: #f94a3d;
+        margin-bottom:2vw;
+        color: #fff;
+    }
+    
+    .heading a {
+        text-decoration: none;
+        width: 20%;
+        font-size: 2rem;
+        margin-left: 1.5rem;
+    }
+
+    
+    .heading h1 {
+        font-size: 2.5rem;
+        width:80%;
+        text-align: center;
+    }
+    
+
+    input{
+        background-color: crimson;
+        cursor: pointer;
+        color:#fff;
+        border:none;
+        width:10vw;
+        font-size:1.5vw;
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <div class="heading">
+            <a href="/" style="color: #212244; "><i class="ri-arrow-left-double-line"></i>Back</a>
+            <h1>Best Deal with Us!</h1>
+            <a style="text-align: right; color: #212244; " href="/cart/">CART<i class="ri-arrow-right-double-line"></i></a>
+        </div>
+
+
+        <div class="product-container">
+            {% csrf_token %}
+            {% for i in product %}
+        <div class="product" date-name="p-1">
+            <img src="/media/{{i.image}}" alt="">
+            <h3>{{i.name}}</h3>
+            <p>{{i.description}}</p>
+            <div class="price">Rs.{{i.price}}</div>
+            <form action="/home/" method="post">
+                {% csrf_token %}
+                <input hidden name="product" value="{{i.id}}">
+                 <button type="submit">Add to Cart</button>
+            </form>
+
+            {% comment %} <form method="post" action="{% url 'home' %}">
+                {% csrf_token %}
+                <!-- Assuming your product ID field is named 'product_id' -->
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit">Add to Cart</button>
+            </form> {% endcomment %}
+            
+        </div>
+        {% endfor %}
+        {% comment %} {% for i in product %}
+        <div class="product-card">
+          <img src="{{i.image}}" alt="Product">
+          <h3>{{i.name}}</h3>
+          <p>{{i.description}}</p>
+          <span class="price">{{i.price}}</span>
+          <!-- product_detail.html  first step  make form 
+                                    second step take  input type submit-->
+           <form action="/" method="post">    <!-- product_detail.html  first step  make form -->
+            {% csrf_token %}
+            <input hidden type="text" name="product" value="{{i.id}}">       <!--product id in the form as value  in the lase hide this input-->
+            <input type="submit" value="Add to Cart">  <!--second step take  input type submit-->
+           </form>
+  
+        </div>
+        {% endfor %} {% endcomment %}
+
+
+    </div>
+    </div>
+
+
+
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
+
+<!--  Gsap is needed for Basic Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- Scroll Trigger is needed for Scroll Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js is needed for 3d Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+<!-- ControlKit is needed for Debug Panel -->
+<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    
+
+      {% comment %} gsap.from(".heading h1", {
+        opacity:0,
+          y:-20,
+          duration:2
+      }) {% endcomment %}
+
+      {% comment %} gsap.from(".nlink", {
+        stagger: .1,
+        y: 10,
+        duration: 2,
+        ease: Power3,
+        opacity: 0
+ }) {% endcomment %}
+ 
+ {% comment %} Shery.textAnimate(".heading h1" /* Element to target.*/, {
+  //Parameters are optional.
+  style: 1,
+  y: 20,
+  delay: 0.2,
+  duration: 2,
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  multiplier: 0.1,
+}); {% endcomment %}
+ 
+ 
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('.container'),
+      smooth: true
+  });
+
+
+  </script>
+
+</body>
+</html>

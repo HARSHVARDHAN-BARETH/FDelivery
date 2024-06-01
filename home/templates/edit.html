@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/></head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
+    body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        {% comment %} background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite; {% endcomment %}
+        position: relative;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    @media(max-width:1000px)
+    {
+        .main{
+            flex-direction: column;
+        }
+        .mleft{
+            width: 100%;
+        }
+        .mright{
+            width: 100%;
+        }
+    }
+
+    .mleft{
+        width: 50%;
+        height: inherit;
+    }
+    .heading{
+        width: 100%;
+        height: 80px;
+        align-items: center;
+        display: flex;
+        padding: 0vw 3vw;
+        justify-content: center;
+        gap: 5vw;
+    }
+    .heading a{
+        text-decoration: none;
+        font-size: 2vw;
+    }
+    .heading h1{
+        font-size: 2vw;
+        color:#f94a3d;
+    }
+    .user{
+        display: flex;
+        flex-direction: column;
+        padding: 0 3vw;
+        margin-left: 5vw;
+        align-items: center;
+        width: 80%;
+        justify-content: center;
+        height: 85%;
+    }
+    .img{
+        width: 18vw;
+        height: 18vw;
+        outline: .1rem solid #ccc;
+        outline-offset: -1.5rem;
+        cursor: pointer;
+        margin-bottom: 2vw;
+        transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .img img{
+        width: 100%;
+        border-radius: 2vw;
+        height: 100%;
+        object-fit: cover;
+    }
+    .img:hover img {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        outline: .2rem solid crimson;
+        outline-offset: 0;
+
+    }
+        .text{
+        width: 35vw;
+        text-align: center;
+    }
+
+    .text h1{
+        font-size: 2.5vw;
+        color: #212244;
+        margin-bottom: 1vw;
+    }
+    
+    .text h2{
+        font-size: 2vw;
+        color: #e83b2e;
+        margin-bottom: 1vw;
+    }
+    
+    .text p{
+        margin-bottom: 2vw;
+        color: #000;
+        font-size: 1.5vw;
+    }
+
+   .heading2{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    padding: 0vw 2vw;
+    justify-content: center;
+    align-items: center;
+   }
+    
+   .heading2 a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: #000;
+    padding: 0.70vw 3vw;
+    background: crimson;
+    border-radius: 2vw;
+   }
+
+   .heading:hover a{
+    background: rgb(238, 0, 48);
+   }
+
+    .buttons a{
+        text-decoration: none;
+        font-size: 1.5vw;
+        color: #fff;
+        padding: 0.70vw 3vw;
+        background: crimson;
+        border-radius: 2vw;
+    }
+
+    .mright{
+        width: 50%;
+        height: inherit;
+    }
+
+    .heading2 h1{
+        color: #f94a3d;
+        font-size: 2vw;
+    }
+
+    .update{
+        padding: 3vw 0;
+        width: 100%;
+        display: flex;
+        height: 85%;
+        justify-content: center;
+        flex-direction: column;
+       align-items: center;
+    }
+
+    .imgInput{
+        width: 18vw;
+        height: 18vw;
+        cursor: pointer;
+    }
+
+    button{
+        text-decoration: none;
+        font-size: 1.5vw;
+        color: #fff;
+        padding: 0.70vw 3vw;
+        background: crimson;
+        border: none;
+        border-radius: 2vw;
+    }
+
+    .imgInput img{
+        border-radius: 2vw;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .textInput{
+        margin-top: 3vw;
+        text-align: center;
+    }
+
+    .textInput li {
+        font-size: 1.5vw;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    ul li{
+        margin-bottom: 1vw;
+    }
+
+</style>
+<body>
+    <div class="main">
+       <div class="mleft">
+        <div class="heading">
+            <a href="/" style="color: #212244; "><i class="ri-arrow-left-double-line"></i>BACK</a>
+            <h1>User Profile  <i class='bx bxs-user'></i></h1>
+        </div>
+        <div class="user">
+           <div class="img">
+            <img src="{{user.profile.profileImg.url}}" alt="">
+        </div>
+           <div class="text">
+            <h1>{{user.profile.name}}</h1>
+            <h2>{{user.profile.title}}</h2>
+            <p>{{user.profile.desc}}</p>
+           </div>
+           <div class="buttons">
+            <a href="/profile/">Edit</a>
+           </div>
+        </div>
+       
+       </div>
+       <div class="mright">
+        <div class="heading2">
+            <h1>Edit Your Profile</h1>
+            {% comment %} <a href="/login/">Log out</a> {% endcomment %}
+        </div>
+        <div class="update">
+            {% csrf_token %}
+            <form class = 'container' action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+             <div class="imgInput">
+                <img src="{{user.profile.profileImg.url}}" alt="">
+                {{form.profileImg}}
+         </div>
+             <div class="textInput">
+                <ul>
+                    <li class="name">
+                        <label for="user-name">Your Name</label>
+                        {{form.name}}
+                    </li>
+                    <li class="title">
+                        <label for="user-title">Your title</label>
+                        {{form.title}}
+                    </li>
+                    <li class="desc">
+                        <label for="user-desc">Description</label>
+                        {{form.desc}}
+                    </li>
+                </ul>
+                <button class="button"> Save </button>
+             </div>
+        </div>
+    </form>
+
+       </div>
+    </div>
+</body>
+</html>

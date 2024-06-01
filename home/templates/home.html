@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== Favicon ===============-->
+    <link
+      rel="shortcut icon"
+      href="/static/images/favicon-32x32.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <!--=============== Swiper CSS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!--=============== Boxicons ===============-->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!--=============== Custom StyleSheet ===============-->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>FDelivery</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+  </head>
+  <style>
+    .cards{
+      background-color: #fff;
+
+      padding: 1vw 10vw;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) ;
+      width: 100%;
+      height: 100vh;
+  }
+  .card{
+      padding: 1vw 1vw;
+      width: 100%;
+      height: 100%;
+  }
+  .img{
+      width: 100%;
+  }
+  .text h3{
+      font-size:2vw;
+      text-transform: uppercase;
+  }
+  .img img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+   .text p{
+      font-size:2vw;
+   }
+  
+  .acart{
+      background-color: crimson;
+  }
+  .acart a{
+      text-decoration: none;
+      font-size: 2vw;
+      width: 100%;
+      margin-left: 7vw;
+      color: #fff;
+  }
+
+  .display{
+    width: 100%;
+    height: 70vh;
+}
+.content h3{
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    color: crimson;
+    padding-top: 10px;
+}
+.content a{
+    text-decoration: none;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.content{
+    width: 20%;
+    margin: 15px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.25);
+    transition: .4s;
+    background: #f0f8ff;
+}
+.content:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    transform: translate(0px, -8px);
+}
+.content img{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.content p{
+    text-align: center;
+    color: #000;
+    padding: 0 8px;
+}
+.content h6{
+    font-size: 26px;
+    text-align: center;
+    color: red;
+    margin: 0;
+}
+.content  ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+.content ul li{
+    padding-top: 5px;
+}
+.content  .bx{
+    font-size: 26px;
+    color: #ff9f43;
+
+    transition: .4s;
+    margin: 3px;
+}
+.content button{
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin-top: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.buy-1{
+    background: #1e90ff;
+}
+.buy-2{
+    background: #ff1493;
+}
+.buy-3{
+    background: #f94a3d;
+}
+.buy-4{
+    background: crimson;
+}
+@media(max-width:1000px)
+{
+    .content{
+        width: 45%;
+    }
+    .display{
+      width: 100%;
+      height: 141vh;
+  }
+  
+}
+@media(max-width:750px)
+{
+    .content{
+        width: 100%;
+    }
+    .display{
+      width: 100%;
+      min-height: 285vh;
+  }
+  
+}
+
+.page4 h2{
+  padding: 0vw 3vw;
+  color: crimson;
+  font-size: 2vw;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 4vw;
+  font-weight: 800;
+}
+
+body::-webkit-scrollbar{
+  display: block;
+  width: 5px;
+  background-color: #f94a3d;
+  color: #fff;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #fff;
+}
+
+.navbar h1{
+  font-size:1.5vw;
+}
+</style>
+  <body>
+    <!--=============== Header ===============-->
+    <div class="food">
+    <header class="header">
+
+      <nav class="navbar">
+        <div class="row d-flex container">
+              <a href="" class="logo d-flex">
+                <img src="/static/images/logo.png" alt="">
+              </a>
+              <ul class="nav-list d-flex">
+                <a href="/">Home</a>
+                <a href="/profile/">Profile</a>
+                <a href="/home/">Food</a>
+                <a href="#about">About</a>
+                <a href="#">Recipies</a>
+                <a href="/cart/">Cart <i class='bx bx-shopping-bag'></i>
+                </a>
+                <div class="close">
+                  <i class='bx bx-x' ></i>
+                </div>
+              </ul>
+              
+              <h1>Welcome!  {{ user.username }}</h1>
+
+              <div class="col d-flex">
+                {% comment %} <form action="">
+                  <input type="search" placeholder="search requirments">
+                  <button class="d-flex"><i class='bx bx-search'></i></button>
+                </form> {% endcomment %}
+
+                <div class="card-icon d-flex">
+                </div>
+                {% if user.is_authenticated %}
+                <a href="/logout/" class="btn sign-in">Logout</a>
+            {% else %}
+                <a href="/login/" class="btn sign-in">Login</a>
+            {% endif %}
+              </div>
+
+              <!--Hambrger-->
+              <div class="hamburger d-flex">
+                {% comment %} <a href="/profile/" style="color:#fff; " class=" sing-in"><i class='bx bx-user-circle'></i></a> {% endcomment %}
+                {% comment %} <i class='bx bx-menu'></i> {% endcomment %}
+              </div>
+
+        </div>
+      </nav> 
+        
+       <!--=============== Home ===============-->
+
+       <div class="home">
+        <div class="row container">
+          <div class="col">
+            <div class="faster">
+              More Than Faster
+              <div class="image d-flex">
+                <img src="/static/images/french-fries.svg" alt="">
+              </div>
+            </div>
+            <h1>Get your Cuisine <br>
+               Delivered right to <br>
+               <span class="color"> your door</span></h1>
+
+               <p>Food is deliverd at the right time. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, iste.</p>
+              <button> <a href="/home/" class="btn ">Explore Food</a> </button> 
+              </div>
+          <div class="col">
+            <img src="/static/images/delivery-guy.svg" alt="">
+          </div>
+        </div>
+       </div>
+
+             <!--=============== SignIn Form ===============-->
+        <div class="wrapper">
+          <form action="" class="form">
+            <h2>Sing In</h2>
+            <div class="control">
+              <label for="">Enter Email : </label>
+              <input type="emal">
+            </div>
+            <div class="control">
+              <label for="">Password : </label>
+              <input type="password" >
+            </div>
+            <div class="checkbox d-flex">
+              <input type="checkbox" class="checkbox">
+              <span>Remmeber me</span>
+            </div>
+            <button class="btn">
+              Sign In
+            </button>
+            <div class="links">
+              <span><a href="#">Forget Password?</a></span>
+              <span><a href="#">Don't have an Account?</a></span>
+            </div>
+          </form>
+
+          <div class="close-form">
+            <i class='bx bx-x'></i>
+          </div>
+        </div>
+
+    </header>
+
+    <div class="display ">
+
+      <div class="gallery">
+          <div class="content">
+              <img src="https://static.toiimg.com/thumb/61050397.cms?imgsize=246859&width=800&height=800" alt="">
+              <h3>Samosa</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+              <h6>Rs.40.00</h6>
+              <ul>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+              </ul>
+              <button  class="buy-3"><a href="/home/" class="btn ">Explore Food</a></button>
+          </div>
+          <div class="content">
+               <img src="https://media.istockphoto.com/id/1314329942/photo/goal-gappa-or-pani-puri.jpg?s=612x612&w=0&k=20&c=l6akiKMfTLE9nR4VonhiOZpZGDY4aEjimAN-BSskF-A=" alt="">
+              <h3>Paani Puri</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+              <h6>Rs.10.00</h6>
+              <ul>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+              </ul>
+              <button  class="buy-3"><a href="/home/" class="btn ">Explore Food</a></button>
+          </div>
+          <div class="content">
+              <img src="https://www.nestleprofessional.in/sites/default/files/2022-09/Gajar-Halwa_0.jpg" alt="">
+              <h3>Halwa</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+              <h6>Rs.80.00</h6>
+              <ul>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+              </ul>
+              <button  class="buy-3"><a href="/home/" class="btn ">Explore Food</a></button>
+          </div>
+          <div class="content">
+               <img src="https://www.secondrecipe.com/wp-content/uploads/2020/11/dal-bati-churma.jpg" alt="">
+              <h3>Daal Baati</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+              <h6>Rs.60.00</h6>
+              <ul>
+                  <li><i class='bx bxs-star checked'></i></li>
+                  <li><i class='bx bxs-star checked'></i></li>
+                  <li><i class='bx bxs-star checked'></i></li>
+                  <li><i class='bx bxs-star checked'></i></li>
+                  <li><i class='bx bxs-star'></i></li>
+              </ul>
+              <button  class="buy-3"><a href="/home/" class="btn ">Explore Food</a></button>
+          </div>
+      </div>
+  </div>
+  
+
+    <!--=============== Services ===============-->
+    <section class="section services">
+        <div class="row container">
+          <div class="col">
+            <h1>Why we are best in our Town</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, rerum.</p>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="/static/images/meat-icon.svg" alt="">
+              <h3>Chose <br> your favourate <br> food</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="/static/images/delivery-icon.svg" alt="">
+              <h3>Get <br> delivery at your step <br> food</h3>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <img src="/static/images/phone-icon.svg" alt="">
+              <h3>We have <br> 400+ views in our <br> app</h3>
+            </div>
+          </div>
+
+        </div>
+    </section>
+
+    <!--=============== About ===============-->
+    <section class="section about">
+      <div class="row container">
+        <div class="col">
+          <img src="/static/images/delivery-guy-2.svg" alt="">
+        </div>
+        <div class="col">
+          <h2>Take a look at the benifits we offer for you</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum soluta eveniet consequatur dolor optio non saepe?</p>
+          <div class="d-grid">
+             <div class="card">
+              <img src="/static/images/car-icon.svg" alt="">
+              <h4>Free Home delivery </h4>
+              <span>For all orders Rs.50</span>
+             </div>
+             <div class="card">
+              <img src="/static/images/dollar-icon.svg" alt="">
+              <h4>Return & Refund </h4>
+              <span>Money back Guarantee</span>
+             </div>
+             <div class="card">
+              <img src="/static/images/security-icon.svg" alt="">
+              <h4>Secure Payment </h4>
+              <span>100% Secuare Payment</span>
+             </div>
+             <div class="card">
+              <img src="/static/images/time-icon.svg" alt="">
+              <h4>Quality Support </h4>
+              <span>Always Online 24/7</span>
+             </div>
+          </div>
+        </div>
+      </div>
+
+        {% comment %} <div class="container">
+
+          <div class="cards">
+              {% csrf_token %}
+              {% for i in product %}
+              <div class="card" method="post" enctype="multipart/form-data">
+                  <div class="img">
+                      <img src="{{i.image}}" alt="">
+                </div>
+                <div class="text">
+                  <h3>{{i.name}}</h3>
+                  <p>{{i.description}}</p>
+                  <p>Rs.{{i.price}}</p>
+              </div>
+                <div class="acart">
+                  <a href="#">Add to cart</a>
+                </div>
+             </div>
+          
+              {% endfor %}
+          </div>
+          </div>
+       {% endcomment %}
+      <hr>
+    </section>
+    <!--=============== Recipes ===============-->
+     <section class="recipes">
+      <div class="page4">
+
+
+
+        <h2>Inspiration for your first order
+        </h2>
+    
+        <div class="gallery">
+            <div class="content">
+                <img src="https://thebigmansworld.com/wp-content/uploads/2023/02/chicken-chow-mein-recipe.jpg" alt="">
+                <h3>Chow mein      </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.southernliving.com/thmb/3x3cJaiOvQ8-3YxtMQX0vvh1hQw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2652401_QFSSL_SupremePizza_00072-d910a935ba7d448e8c7545a963ed7101.jpg" alt="">
+                <h3>Pizza</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg" alt="">
+                <h3>Burger</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                 <img src="https://rainbowplantlife.com/wp-content/uploads/2022/02/Gobi-Manchurian-cover-photo-on-white-tile-1-of-1-500x375.jpg" alt="">
+                <h3>Manchurian</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/10/vada-pav-recipe.jpg" alt="">
+                <h3>Vada Pav</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.licious.in/blog/wp-content/uploads/2020/12/Hyderabadi-chicken-Biryani.jpg" alt="">
+                <h3>Biryani</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.licious.in/blog/wp-content/uploads/2021/11/Vegetable-Rolls.jpg" alt="">
+                <h3>Rolls</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+            <div class="content">
+                <img src="https://www.funfoodfrolic.com/wp-content/uploads/2022/03/Kachori-Blog.jpg" alt="">
+                <h3>Kachori</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui.</p>
+                <button class="buy-3"><a href="/home/" class="btn ">Explore Food</a> </button>
+            </div>
+        </div>
+    </div>
+     </section>
+    <!--=============== Testimonials ===============-->
+ {% comment %} <br><br><br><br><br><br> {% endcomment %}
+    <div class="picutre">
+      <img src="/static/images/new.jpg" alt="">
+    </div>
+
+    <!--=============== App ===============-->
+
+    <!--=============== Footer ===============-->
+     <div class="footer">
+      <div class="logo">
+        <img src="/static/images/logo.png" alt="">
+      </div>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/menu/">Menu</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="icons">
+        <i class='bx bxl-facebook-circle'></i>
+        <i class='bx bxl-instagram' ></i>
+        <i class='bx bxl-twitter' ></i>
+      </div>
+      <div class="c">
+        Copyright © 2024 FDelivery Restaurant | powered by FDelivery Restaurant
+      </div>
+     </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+
+    <!--=============== Swiper JS ===============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--=============== Custom JS ===============-->
+    <script src="./js/testimonial.js"></script>
+    <script src="./js/products.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    
+
+       gsap.from(".page4 h2", {
+          color:"black",
+          duration:2
+      })
+
+      var tl =  gsap.timeline();
+
+      tl
+       .from(".navbar",{
+           opacity:0,
+           y:20,
+           duration:1
+       })
+       .from(".col",{
+        opacity:0,
+        y:20,
+        duration:1
+       })
+       .from(".col h1",{
+        opacity:0,
+        y:20,
+       })
+       gsap.to(".gallery", {
+        scrollTrigger:{
+            trigger:".gallery",
+            scroller:"body",
+            scrub:true,
+        },
+        scale:.9,
+        duration:2
+    })
+       gsap.to(".services ", {
+        scrollTrigger:{
+            trigger:".services",
+            scroller:"body",
+            scrub:true,
+        },
+        scale:1.1,
+        duration:2
+    })
+
+    gsap.from(".page4 .gallery ", {
+      y:50,
+      opacity: 0,
+      duration: 2,
+      stagger: 0.4,
+      scale:1.3,
+      scrollTrigger:{
+          trigger: ".page4",
+          scroller: "body",
+          start: "top 60%",
+          end: "top 50%",
+          scrub: 3
+      }
+  })
+  gsap.from(".about ", {
+      scale: 0.9,
+      opacity: 0,
+      duration: 2,
+      stagger: 0.2,
+      scrollTrigger:{
+          trigger: ".about",
+          scroller: "body",
+          start: "top 70%",
+          end: "top 60%",
+          scrub: 2
+      }
+  })
+  
+ 
+    {% comment %} const scroll = new LocomotiveScroll({
+      el: document.querySelector('.food'),
+      smooth: true
+  }); {% endcomment %}
+
+
+  </script>
+  </body>
+</html>
