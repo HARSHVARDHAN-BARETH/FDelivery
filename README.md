@@ -10,17 +10,18 @@
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/dd451215-cf0b-4a6e-934d-8e1bf8ca8c7a)
 
 **Profile Management**
-![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/d5fb0271-2bf3-43e4-b972-1e486420e815)
+![image](https://github.com/user-attachments/assets/b0be17bd-817b-4dc2-a1bf-7849e916d604)
+![image](https://github.com/user-attachments/assets/eac98c29-9cf2-4d5d-b236-7a038066767f)
 
 **MENUE**   (here! we can see variety of items and can add into cart)
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/a4097189-3cd1-4656-b9fe-e7093ba691b4)
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/2bd7526f-a4c2-407d-994e-0cb2a6ae4e86)
 
 **Cart View**  (we can add variety of food's and can remove too, If we don't wish to order)
-![Uploading image.png…]()
-![Uploading image.png…]()
-![Uploading image.png…]()
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/a0f2f29b-b650-4be8-9247-479da01ac698)
+![image](https://github.com/user-attachments/assets/e57a3c58-6a84-4a19-83cf-e03f2af9ef2f)
+![image](https://github.com/user-attachments/assets/3f381eb2-21e8-472d-8b01-9027075515de)
+![image](https://github.com/user-attachments/assets/7d1842db-48d3-48aa-951b-aa13fa10fbc0)
 
 **Authentication**
 ![image](https://github.com/HARSHVARDHAN-BARETH/FDelivery/assets/137777618/f3b170ec-5aca-4469-b457-18806807ef76)
